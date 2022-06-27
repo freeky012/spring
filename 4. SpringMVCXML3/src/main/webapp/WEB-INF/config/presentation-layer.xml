@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!-- HandlerMapping 등록-->
+
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/login.do">login</prop>
+				<prop key="/listMember.do">listMember</prop>
+				<prop key="/detailMember.do">detailMember</prop>
+				<prop key="/joinMember.do">joinMember</prop>
+				<prop key="/updateMember.do">updateMember</prop>
+				<prop key="/dropMember.do">dropMember</prop>
+				<prop key="/logout.do">logout</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- Controller 등록-->
+	<bean id="login" class="com.computer.member.LoginController"></bean>
+	<bean id="listMember" class="com.computer.member.ListController"></bean>
+	<bean id="detailMember" class="com.computer.member.DetailController"></bean>
+	<bean id="joinMember" class="com.computer.member.JoinController"></bean>
+	<bean id="updateMember" class="com.computer.member.UpdateController"></bean>
+	<bean id="dropMember" class="com.computer.member.DropController"></bean>
+	<bean id="logout" class="com.computer.member.LogoutController"></bean>
+	
+	<!-- ViewResolver 등록-->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="index.jsp?pageinfo=/WEB-INF/member/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+</beans>
